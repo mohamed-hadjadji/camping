@@ -1,10 +1,18 @@
 <?php
 session_start();
+// premier select
 $connexion= mysqli_connect("localhost","root","","gestioncamping");
 $requete= "SELECT * FROM reservations";
 $query= mysqli_query($connexion,$requete);
 $resultat = mysqli_fetch_all($query);
+
+// 2eme select
+
+$requetet= "SELECT * FROM tarif2";
+$queryt= mysqli_query($connexion,$requetet);
+$resultatt = mysqli_fetch_all($queryt);
 echo($resultat[0][8]);
+
 
 var_dump($resultat);
 
@@ -37,7 +45,7 @@ var_dump($resultat);
     echo "<div id=\"personnesinscrites\">
     <table border>
     <tr>
-    <th>ID</th><th>Type</th><th>lieu</th><th>debut</th><th>Fin</th><th>options</th><th>id-utili</th><th>total</th>
+    <th>ID</th><th>Type</th><th>lieu</th><th>debut</th><th>Fin</th><th>options</th><th>id-utili</th><th>total</th><th>speudo</th>
 
     </tr>
     </div>";
@@ -48,6 +56,28 @@ var_dump($resultat);
       foreach($key as $value)
       {
         echo "<td>".$value."</td>";
+      }
+      echo "</tr>";
+    }
+    echo "</table>";
+
+
+    
+
+    echo "<div id=\"personnesinscrites\">
+    <table border>
+    <tr>
+    <th>ID</th><th>tente</th><th>campingcar</th><th>borne</th><th>disco</th><th>pack</th><th>id-user</th>
+
+    </tr>
+    </div>";
+
+    foreach($resultatt as $key2)
+    {
+      echo "<tr>";
+      foreach($key2 as $value2)
+      {
+        echo "<td>".$value2."</td>";
       }
       echo "</tr>";
     }
@@ -66,6 +96,8 @@ var_dump($resultat);
         <option value="borne">borne</option>
         <option value="disco">disco</option>
         <option value="pack">pack</option>
+        <option value="tente">tente</option>
+        <option value="campingcar">campingcar</option>
       </select>
       <label>Prix</label><br>
       <input type="number" name="prix1" placeholder="prix"><br>
@@ -84,14 +116,16 @@ var_dump($resultat);
 
 
 
-      $requete2= "UPDATE tarif  SET prix= '$prix' where nom= '$nom'  ";
+      $requete2= "UPDATE tarif2  SET $nom = '$prix' where '$nom'= '$nom'  ";
       $query2= mysqli_query($connexion,$requete2);
+       echo "votre changement a etait pris en compte";
 
     }
 
         ?>
 
     <!-- modifier les reservation -->
+    <h1>modifier les reservation</h1>
     <form method="post"> 
       <label>Speudo:</label><br>
       <input type="text" name="pseudo" placeholder="speudo"><br>
@@ -115,12 +149,14 @@ var_dump($resultat);
     $mod1 = $_POST['resultat'];
       $requete3= "UPDATE reservations  SET $categorie = '$mod1' where pseudo= '$name'  ";
       $query3= mysqli_query($connexion,$requete3);
+      echo "votre reservation a etait pris en compte";
           
 
     }
 
-    // suprimer la resarvation
-   ?>     
+    // suprimer la reservation
+   ?>    
+   <h1>suprimer la reservation</h1> 
 <form method="post"> 
       <label>Speudo:</label><br>
       <input type="text" name="pseudo2" placeholder="speudo"><br>
@@ -133,7 +169,7 @@ var_dump($resultat);
       $name2 = $_POST['pseudo2'];
       $requete4= "DELETE FROM reservations WHERE pseudo= '$name2'";
       $query4= mysqli_query($connexion,$requete4);
-          
+          echo "supression reusis";
 
     }
 
