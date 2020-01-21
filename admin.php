@@ -45,7 +45,7 @@ var_dump($resultat);
     echo "<div id=\"personnesinscrites\">
     <table border>
     <tr>
-    <th>ID</th><th>Type</th><th>lieu</th><th>debut</th><th>Fin</th><th>options</th><th>id-utili</th><th>total</th><th>speudo</th>
+    <th>ID</th><th>type</th><th>lieu</th><th>sejour</th><th>debut</th><th>fin</th><th>option1</th><th>option2</th><th>option3</th><th>total</th><th>id_user</th><th>pseudo</th>
 
     </tr>
     </div>";
@@ -67,7 +67,7 @@ var_dump($resultat);
     echo "<div id=\"personnesinscrites\">
     <table border>
     <tr>
-    <th>ID</th><th>tente</th><th>campingcar</th><th>borne</th><th>disco</th><th>pack</th><th>id-user</th>
+    <th>ID</th><th>tente</th><th>campingcar</th><th>borne</th><th>disco</th><th>pack</th><th>id_reservation</th>
 
     </tr>
     </div>";
@@ -118,7 +118,7 @@ var_dump($resultat);
 
       $requete2= "UPDATE tarif2  SET $nom = '$prix' where '$nom'= '$nom'  ";
       $query2= mysqli_query($connexion,$requete2);
-       echo "votre changement a etait pris en compte";
+       echo "votre changement a eté pris en compte";
 
     }
 
@@ -132,31 +132,71 @@ var_dump($resultat);
       <select name="categorie">
         <option value="type">type</option>
         <option value="lieu">lieu</option>
-        <option value="option">option</option>
         <option value="total">total</option>
       </select>
-      <input type="text" name="resultat" placeholder="changement">
-      <input type="submit" name="modifer" value="modifer">
+       <input type="text" name="resultat" placeholder="changement">
+
+
+      <!-- form 1 -->
+       
+     <fieldset>
+  <legend>Veuillez sélectionner les supléments :</legend>
+    <input type="checkbox" name="option1" value="borne">
+    <label for="coding">borne</label>
+    <input type="checkbox" name="option2" value="disco">
+    <label for="music">disco</label>
+    <input type="checkbox" name="option3" value="pack">
+    <label for="music">pack</label>
+</fieldset>
+
+                <input type="submit" name="modifier" value="modifer">
+      
+ 
 
     </form>
           <?php 
 
 
-    if (isset($_POST['modifer']))
+    if (isset($_POST['modifier']))
     {
+      if(!isset($_POST['option1'])){
+        $option1 = null;
+      }
+      else{
+        $option1 = $_POST['option1'];
+      }
+      if(!isset($_POST['option2'])){
+        $option2 = null;
+      }
+      else{
+        $option2 = $_POST['option2'];
+      }
+      if(!isset($_POST['option3'])){
+        $option3 = null;
+      }
+      else{
+        $option3 = $_POST['option3'];
+      }
+      
+
+
           $name = $_POST['pseudo'];
     $categorie = $_POST['categorie'];
+    
     $mod1 = $_POST['resultat'];
-      $requete3= "UPDATE reservations  SET $categorie = '$mod1' where pseudo= '$name'  ";
+
+      $requete3= "UPDATE reservations  SET $categorie = '$mod1' , option1 = '$option1' , option2 = '$option2' , option3 = '$option3' where pseudo= '$name'  ";
       $query3= mysqli_query($connexion,$requete3);
-      echo "votre reservation a etait pris en compte";
+      echo "votre modification a bien eté pris en compte";
           
 
     }
+  
+
 
     // suprimer la reservation
    ?>    
-   <h1>suprimer la reservation</h1> 
+   <h1>supprimer la reservation</h1> 
 <form method="post"> 
       <label>Speudo:</label><br>
       <input type="text" name="pseudo2" placeholder="speudo"><br>
