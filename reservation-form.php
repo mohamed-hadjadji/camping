@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,7 +8,7 @@
 <body class="bodir">
 	<?php
 	include("bar-nav.php");
-    session_start();
+    
 
 	if (isset($_SESSION['login']))
 	{
@@ -17,6 +17,17 @@
         $requete ="SELECT * FROM utilisateurs WHERE login ='".$_SESSION['login']."'";
         $query = mysqli_query($connexion, $requete);
         $resultat = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+        $requete1 = "SELECT * FROM tarif2 ";
+
+        $req = mysqli_query($connexion, $requete1);
+
+        while($row = mysqli_fetch_assoc($req))
+       {
+            $tentep= $row['tente'];
+            $bornep= $row['borne'];
+            $discop= $row['disco'];
+            $packp= $row['pack'];
 	
     
 	?>
@@ -43,51 +54,70 @@
             <input  type="date" name="datefin" required><br>
              
             <label  for="text"><b>Option</b></label></br>
-            <input  type="checkbox" name="borne">
-            <label>Bornes éléctrique (2£)</label></br>
-             <input type="checkbox" name="disco">
-            <label>Discothèque (17£)</label></br>
-             <input type="checkbox" name="pack">
-            <label>Activités (30£)</label></br>
+            <input  type="checkbox" name="borne" value="borne">
+            <label>Bornes éléctrique (<?php echo $row['borne']?>€ /jour)</label></br>
+             <input type="checkbox" name="disco" value="disco">
+            <label>Discothèque (<?php echo $row['disco']?>€ /jour)</label></br>
+             <input type="checkbox" name="pack" value="pack">
+            <label>Activités (<?php echo $row['pack']?>€ /jour)</label></br>
           
             <br><input type="submit" value="RESERVER" name="valider"></br>
      	</form>
      	<?php
+        }
                     if ( isset($_POST["valider"]) )
                     {
-                          $typio = $_POST['type'];
-                          $renametype = addslashes($typio); 
-                          $lieu = $_POST['lieu'];
-                          $renamelieu = addslashes($lieu);
-                          $sejourio = $_POST['sejour'];
-                          $renamesejour = addslashes($sejourio);
-                          $datedebut = $_POST['datedebut'];
-                          $datefin = $_POST['datefin'];
-                      
-                          $startdate = date('Y-m-d', strtotime($datedebut));
-                          $enddate = date('Y-m-d', strtotime($datefin));
+                    	if(!isset($_POST['borne'])){
+                         $option1 = null;
+                        }
+                        else{
+                         $option1 = $_POST['borne'];
+                        }
+                        if(!isset($_POST['disco'])){
+                        $option2 = null;
+                        }
+                        else{
+                        $option2 = $_POST['disco'];
+                        }
+                        if(!isset($_POST['pack'])){
+                         $option3 = null;
+                        }
+                        else{
+                         $option3 = $_POST['pack'];
+                        }
+
+                        $typio = $_POST['type'];
+                        $renametype = addslashes($typio); 
+                        $lieu = $_POST['lieu'];
+                        $renamelieu = addslashes($lieu);
+                        $sejourio = $_POST['sejour'];
+                        $renamesejour = addslashes($sejourio);
+                        $datedebut = $_POST['datedebut'];
+                        $datefin = $_POST['datefin'];
+                   
+                        $startdate = date('Y-m-d', strtotime($datedebut));
+                        $enddate = date('Y-m-d', strtotime($datefin));
+
+                        include("calcule.php");
                           
                           
-                          include("calcule.php");
-                          
-                          
-                          if($startdate < date('Y-m-d')){
+                        if($startdate < date('Y-m-d')){
                               echo "Vous ne pouvez pas reserver a une date anterieur au ".date('d-m-Y');
                           
-                          }
-                          elseif ($enddate < $startdate) {
+                        }
+                        elseif ($enddate < $startdate) {
                               echo "Vous ne pouvez pas choisir une date de fin antérieur a la date de debut";
-                          }
-                          else{
-                              $requete2 = "SELECT * FROM reservations WHERE (debut BETWEEN '$startdate' AND '$enddate') OR (fin BETWEEN '$startdate' AND '$enddate') ";
-                              $query2 = mysqli_query($connexion, $requete2);
-                              $resultat2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
-                              if(!empty($resultat2)){
-                                echo "Une reservation existe deja a cette date";
-                              }
-                              else{
+                        }
+                        else{
+                            $requete2 = "SELECT * FROM reservations WHERE (debut BETWEEN '$startdate' AND '$enddate') OR (fin BETWEEN '$startdate' AND '$enddate') ";
+                            $query2 = mysqli_query($connexion, $requete2);
+                            $resultat2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
+                                if(!empty($resultat2)){
+                                   echo "Une reservation existe deja a cette date";
+                                 }
+                                else{
 
-                                   $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, id_utilisateur) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate',  ".$resultat[0]['id'].")";
+                                   $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total,  ".$resultat[0]['id'].")";
                                       $query3 = mysqli_query($connexion, $requete3);
                                   }
                                }
