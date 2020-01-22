@@ -117,7 +117,7 @@
                                  }
                                 else{
 
-                                   $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total,  ".$resultat[0]['id'].")";
+                                   $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur, pseudo) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total, ".$resultat[0]['id'].", '".$_SESSION['login']."')";
                                       $query3 = mysqli_query($connexion, $requete3);
                                   }
                                }
