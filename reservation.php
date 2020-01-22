@@ -12,7 +12,6 @@ ob_start();
 
     $query = mysqli_query($connexion, $requete);
     $resultat = mysqli_fetch_all($query);
-    var_dump($resultat);
     $taille = count($resultat) - 1;
     
 

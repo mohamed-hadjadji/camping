@@ -14,7 +14,6 @@ $resultatt = mysqli_fetch_all($queryt);
 echo($resultat[0][8]);
 
 
-var_dump($resultat);
 
 // etape 2
 
@@ -41,14 +40,18 @@ var_dump($resultat);
     echo "Vous n'avez pas acces a la page";
   }
   else{
-
-    echo "<div id=\"personnesinscrites\">
+    
+    echo "<div id=\"reserv-admin\">";
+    echo "<h1>Reservations</h1>";
+    ?>
     <table border>
     <tr>
     <th>ID</th><th>type</th><th>lieu</th><th>sejour</th><th>debut</th><th>fin</th><th>option1</th><th>option2</th><th>option3</th><th>total</th><th>id_user</th><th>pseudo</th>
 
     </tr>
-    </div>";
+
+    
+    <?php
 
     foreach($resultat as $key)
     {
@@ -61,10 +64,14 @@ var_dump($resultat);
     }
     echo "</table>";
 
+?>
+    </div>
+    <?php  
+
 
     
-
-    echo "<div id=\"personnesinscrites\">
+    echo "<h1>tarif</h1>";
+    echo "<div id=\"tarif\">
     <table border>
     <tr>
     <th>ID</th><th>tente</th><th>campingcar</th><th>borne</th><th>disco</th><th>pack</th><th>id_reservation</th>
