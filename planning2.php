@@ -22,6 +22,9 @@
         </nav>
     
     </header>
+<form method="post" action="planning2.php">
+    <input type="submit" name="precedent" value="<">
+</form>
 <?php
 session_start();
 
@@ -54,10 +57,9 @@ $dateselec = date_format($datejour, 'Y-m-d');
 
 ?>
 
-<form method="post" action="planning2.php">
+    <form method="post" action="planning2.php">
     <input type="submit" name="suivant" value=">">
-    <input type="submit" name="precedent" value="<">
-</form>
+    </form>  
 
     <?php 
 //requete qui recupere tout de l utilisateur
@@ -74,34 +76,34 @@ $resultat = mysqli_fetch_all($query);
         $capacite3 = 0;
 
       
-//foreach lieu par rapport a type
+//foreach corresondance entre lieu et type
                     foreach ($resultat as $key) {
-                      if ($key[2] == "plage") {
-                      if ($key[1] =="tente") {
+                      if ($key[2] == "Plage") {
+                      if ($key[1] =="Tente") {
                           $capacite1+=1;
                         }
-                        elseif ($key[1] == "camping") {
+                        elseif ($key[1] == "Camping-car") {
                           $capacite1+=2; 
                         }
 
                         }
                          echo $capacite1;
 
-                        if ($key[2] == "pins") {
-                          if ($key[1] =="tente") {
+                        if ($key[2] == "Pins") {
+                          if ($key[1] =="Tente") {
                             $capacite2+=1;
                           }
-                          elseif ($key[1] == "camping") {
+                          elseif ($key[1] == "Camping-car") {
                             $capacite2+=2;  
                           }
                       }
                         echo $capacite2;
 
-                      if ($key[2] == "maquis") {
-                        if ($key[1] =="tente") {
+                      if ($key[2] == "Maquis") {
+                        if ($key[1] =="Tente") {
                           $capacite3+=1;
                         }
-                        elseif ($key[1] == "camping") {
+                        elseif ($key[1] == "Camping-car") {
                           $capacite3+=2;  
                         }
                     }
@@ -110,8 +112,9 @@ $resultat = mysqli_fetch_all($query);
 
 
 $capacite = [$capacite1,$capacite2,$capacite3];
-
+//tableau qui recupere les reservations et affiche les emplacements dispo
 ?>
+
    <table>
        <thead>
            <tr>
