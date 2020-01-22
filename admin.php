@@ -40,6 +40,10 @@ echo($resultat[0][8]);
     echo "Vous n'avez pas acces a la page";
   }
   else{
+    ?>
+    <main>
+      <?php
+
     
     echo "<div id=\"reserv-admin\">";
     echo "<h1>Reservations</h1>";
