@@ -1,0 +1,129 @@
+/*reservation php*/
+
+#body-reserv{
+	background-image: url("https://www.tourisme-isleperigord.com/sites/default/files/styles/fiche_large/public/campings/photos/170_srt_photo_photo_camping-sourzac--1-.jpg?itok=igmb8Rr1");
+	background-size: cover;
+}
+
+#main-reserv{
+	background-color: #d1f8ff5e;
+}
+
+#cadre-reserv{
+	height: 50%;
+	width: 50%;
+	background-color: #81c72f42;
+		position:absolute;
+	margin-left: 25%;
+	margin-top: 2%;
+}
+
+#table-reserv th{
+
+	font-size: 25px;
+	font-style: bold;
+	height: 125px;
+	width: 125px;
+}
+
+#table-reserv tr{
+
+	font-size: 25px;
+	font-style: bold;
+	color:yellow;
+}
+
+#h2-reserv{
+	font-size:25px;
+	text-align: center;
+	font-style: bold;
+	color:#FF9800;
+}
+
+#h1-reserv{
+	font-size:25px;
+	text-align: center;
+	font-style: bold;
+	color:#FF9800;
+}
+.p-reserv{
+	font-size:25px;
+	text-align: center;
+	color:#FF9800;
+	background-color:#d1f8ffa8;
+}
+
+
+
+/*admin*/
+
+#body-admin{
+background-image: url("https://www.coulangesgestionprivee.fr/wp-content/uploads/2016/10/Background-slide-2-1663.jpg");
+background-size: cover;
+
+}
+#main-admin{
+	display: flex;
+	flex-direction: column;
+}
+
+#reserv-admin{
+    width: 596px;
+    height: 310px;
+	background-color: #e4c9c95c;
+	margin-left: auto;
+	margin-right: auto;
+
+	
+
+}
+
+
+#admin-chang{
+    width: 300px;
+    height: 300px;
+    background-color: #de93935c;
+    text-align: center;
+    border: solid;
+    
+
+}
+
+#modif-admin{
+    width: 300px;
+    height: 300px;
+    background-color: #de93935c;
+    text-align: center;
+    border: solid;
+}
+
+#sup-admin{
+    width: 300px;
+    height: 300px;
+    padding-left: 34px;
+    background-color: #de93935c;
+    border: solid;
+}
+
+#content-admin{
+	display: flex;
+	justify-content: space-around;
+	    margin-top: 10%;
+
+
+}
+
+#tab-admin{
+
+
+}
+
+.bouton-admin {
+	border-radius:12px 0 12px 0;
+	background: #f5f5f5;
+	border:none;
+	color:#555;
+	font:bold 12px Verdana;
+	padding:6px 0 6px 0;
+	border:1px solid #ccc;
+}

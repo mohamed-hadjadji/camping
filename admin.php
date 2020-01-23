@@ -24,14 +24,14 @@ echo($resultat[0][8]);
   <title>Admin</title>
   <meta sharset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href= "admin.css">
+  <link rel="stylesheet" href= "camping.css">
   <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
 
 </head>
 
 
 
-<body>
+<body id=body-admin>
 
   <?php
 
@@ -41,7 +41,8 @@ echo($resultat[0][8]);
   }
   else{
     ?>
-    <main>
+    <main id="main-admin" >
+      <div id= "tab-admin">
       <?php
 
     
@@ -69,19 +70,19 @@ echo($resultat[0][8]);
     echo "</table>";
 
 ?>
-    </div>
+    
     <?php  
 
 
     
     echo "<h1>tarif</h1>";
-    echo "<div id=\"tarif\">
+    echo "
     <table border>
     <tr>
     <th>ID</th><th>tente</th><th>campingcar</th><th>borne</th><th>disco</th><th>pack</th><th>id_reservation</th>
 
-    </tr>
-    </div>";
+    </tr>";
+    
 
     foreach($resultatt as $key2)
     {
@@ -98,8 +99,12 @@ echo($resultat[0][8]);
 
 
     ?>
+    </div>
+    <div id="content-admin">
+    
 
     <!-- changement de prix -->
+    <div id="admin-chang">
 <h1>changement de prix </h1>
     <form action="" method="post">
       <select name="suplement" id="pet-select">
@@ -111,8 +116,8 @@ echo($resultat[0][8]);
         <option value="campingcar">campingcar</option>
       </select>
       <label>Prix</label><br>
-      <input type="number" name="prix1" placeholder="prix"><br>
-      <input type="submit" name="accepte" value="valider"><br>
+      <input class="bouton-admin" type="number" name="prix1" placeholder="prix"><br>
+      <input class="bouton-admin" type="submit" name="accepte" value="valider"><br>
 
 
     </form>
@@ -134,33 +139,35 @@ echo($resultat[0][8]);
     }
 
         ?>
+      </div>
 
     <!-- modifier les reservation -->
+    <div id="modif-admin">
     <h1>modifier les reservation</h1>
     <form method="post"> 
       <label>Speudo:</label><br>
-      <input type="text" name="pseudo" placeholder="speudo"><br>
+      <input class="bouton-admin" type="text" name="pseudo" placeholder="speudo"><br>
       <select name="categorie">
         <option value="type">type</option>
         <option value="lieu">lieu</option>
         <option value="total">total</option>
       </select>
-       <input type="text" name="resultat" placeholder="changement">
+       <input class="bouton-admin" type="text" name="resultat" placeholder="changement"><br>
 
 
       <!-- form 1 -->
        
-     <fieldset>
+     
   <legend>Veuillez sélectionner les supléments :</legend>
-    <input type="checkbox" name="option1" value="borne">
+    <input class="bouton-admin" type="checkbox" name="option1" value="borne">
     <label for="coding">borne</label>
-    <input type="checkbox" name="option2" value="disco">
+    <input class="bouton-admin" type="checkbox" name="option2" value="disco">
     <label for="music">disco</label>
-    <input type="checkbox" name="option3" value="pack">
-    <label for="music">pack</label>
-</fieldset>
+    <input class="bouton-admin" type="checkbox" name="option3" value="pack">
+    <label for="music">pack</label><br>
 
-                <input type="submit" name="modifier" value="modifer">
+
+                <input class="bouton-admin" type="submit" name="modifier" value="modifer">
       
  
 
@@ -203,15 +210,15 @@ echo($resultat[0][8]);
 
     }
   
-
-
-    // suprimer la reservation
-   ?>    
+?>
+</div>
+    <!-- suprimer la reservation -->
+     <div id="sup-admin">
    <h1>supprimer la reservation</h1> 
 <form method="post"> 
       <label>Speudo:</label><br>
-      <input type="text" name="pseudo2" placeholder="speudo"><br>
-      <input type="submit" name="suprimer" value="suprimer">
+      <input class="bouton-admin" type="text" name="pseudo2" placeholder="speudo"><br>
+      <input class="bouton-admin" type="submit" name="suprimer" value="suprimer">
 </form>
 
       <?php  
@@ -228,8 +235,10 @@ echo($resultat[0][8]);
       <?php
   }
   ?>
+</div>
+  </div>
 
-
+</main>
 
 
 

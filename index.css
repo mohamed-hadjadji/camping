@@ -1,0 +1,167 @@
+body{
+background-image: url(https://www.quadran.eu/wp-content/uploads/2017/07/camping-1080x675.jpg);
+background-size: cover;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+
+.img-ar{
+	height: 425px;
+	width: 425px;
+}
+/*barre nav*/
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+
+#menu{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: rgba(0, 0, 0, 0.70);
+    margin-top: 30px;
+	height: 90px;
+
+}
+.nav1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 53%;
+
+}
+.img1{
+margin-left: 25px;
+margin-top: -20px;
+height: 170px;
+}
+.img2{
+margin-top: -26px;
+height: 150px;
+transition: .3s ease-in-out;
+}
+.img2:hover{
+margin-top: -40px;
+transform: scale(1.5);
+}
+.nav2{
+
+	display: flex;
+	flex-direction: row;
+	margin-top: 6px;
+	margin-right: 25px;
+    margin: 0 auto;
+	text-align: center;
+}
+
+.nav2 a
+{
+
+    color: white;
+    text-decoration: none;
+    font-family: 'Candara';
+    font-size: 20px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+	margin-left: 40px;
+}
+.nav2 a:hover{
+   color:#F73307;
+}
+
+.nav2 a:before, .nav2 a:after
+{
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #F13939;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    border-radius: 50%;
+    background: transparent;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.nav2 a:after
+{
+    border-width: 2px;
+    transition: all 0.4s;
+}
+
+.nav2 a:hover:before
+{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10%) scale(1);
+}
+
+.nav2 a:hover:after
+{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10%) scale(1.5);
+}
+
+
+/*groupe image*/
+
+#groupeimg-0{
+	display: flex;
+}
+
+#groupeimg-1{
+	display: flex;
+	
+	height: 50%;
+	width: 50%;
+	flex-direction: column;
+}
+
+
+#groupeimg-2{
+	display: flex;
+	
+	height: 50%;
+	width: 50%;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+#ar-titre{
+	    color: #c7e7f4;
+    text-align: center;
+    font-size: 32px;
+}
+
+#section1-ar{
+    height: 278px;
+    width: 531px;
+    position: absolute;
+    margin-top: 12%;
+    margin-left: 36%;
+}
+
+ .psec1-ar{
+ 	font-size: 25px;
+ 	color:red;
+ }
+
+ #h3-ar{
+
+ 	font-size: 45px;
+ 	color:red;
+ 	font-family: sans-serif;
+ }
+
