@@ -219,6 +219,7 @@ background-size: cover;
 	display: flex;
 	justify-content: space-around;
 	   margin-top: 7%;
+	       margin-top: 4%;
 
 
 }
@@ -238,13 +239,38 @@ background-size: cover;
 	border:1px solid #ccc;
 }
 
+input[type=checkbox]{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #dddddd;
+  border-radius: 50%;
+}
+
+input[type=checkbox]:checked {
+  
+  color: #ffffff;
+  background-color: #8BC34A;
+  content: "\2713";
+}
+
+#label-admin{
+	font-size: 25px;
+}
+
 #table1-admin{
 
 	margin:auto;
+	font-size: 16px;
 }
 
 #table2-admin{
 	margin:auto;
+	font-size: 20px;
 }
 
 

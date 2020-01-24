@@ -116,7 +116,7 @@ echo($resultat[0][8]);
     <form action="" method="post">
       <label class="label-admin">Categorie</label><br>
       <select name="suplement" id="pet-select">
-        <option value="">--Please choose an option--</option>
+        <option value="">--Choisissez votre options--</option>
         <option value="borne">borne</option>
         <option value="disco">disco</option>
         <option value="pack">pack</option>
@@ -158,7 +158,6 @@ echo($resultat[0][8]);
     <div id="modif-admin">
     <h1 class="h1-admin">modifier les reservation</h1>
     <form method="post"> 
-      <label class="label-admin">Speudo:</label><br>
       <input class="bouton-admin" type="text" name="pseudo" placeholder="pseudo"><br>
       <select name="categorie">
         <option value="type">type</option>
@@ -172,12 +171,12 @@ echo($resultat[0][8]);
        
      
   <legend class="legend-admin"><b>Veuillez sélectionner les supléments :</b></legend>
-    <input class="bouton-admin" type="checkbox" name="option1" value="borne">
-    <label for="coding">borne</label>
-    <input class="bouton-admin" type="checkbox" name="option2" value="disco">
-    <label for="music">disco</label>
-    <input class="bouton-admin" type="checkbox" name="option3" value="pack">
-    <label for="music">pack</label><br>
+    <input class="bouton-admin2" type="checkbox" name="option1" value="borne">
+    <label id="label-admin" for="borne">borne</label>
+    <input class="bouton-admin2" type="checkbox" name="option2" value="disco">
+    <label id="label-admin" for="disco">disco</label>
+    <input class="bouton-admin2" type="checkbox" name="option3" value="pack">
+    <label id="label-admin" for="pack">pack</label><br>
 
 
                 <input class="bouton-admin" type="submit" name="modifier" value="modifier">
@@ -230,8 +229,8 @@ echo($resultat[0][8]);
      <div id="sup-admin">
    <h1 class="h1-admin">supprimer la reservation</h1> 
 <form method="post"> 
-      <label class="label-admin">Speudo:</label><br>
-      <input class="bouton-admin" type="text" name="pseudo2" placeholder="speudo"><br>
+      <label class="label-admin">pseudo:</label><br>
+      <input class="bouton-admin" type="text" name="pseudo2" placeholder="pseudo"><br>
       <input class="bouton-admin" type="submit" name="suprimer" value="suprimer">
 </form>
 
