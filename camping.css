@@ -1,3 +1,111 @@
+/*barnav*/
+
+a{
+	text-align:center;
+	text-decoration:none;
+}
+
+body{
+	font-family:Tahoma,Geneva,sans-serif;
+	font-weight:400
+	}
+
+ol{margin:0;padding:0;list-style-type:none}
+
+.menu{
+	width:100%;
+	display:block;
+	position:relative;
+	z-index: 60;
+	}
+
+.menu > ol:first-child{
+	width:100%;
+	display:flex;
+	position:relative;
+	flex-flow:row wrap;
+	justify-content:center
+	}
+
+.menu-item, .menu-itemc{
+	width:150px;
+	position:relative;
+	perspective:100%;
+	cursor:pointer
+	}
+
+.menu-item a, .menu-itemc a{
+	width:100%;
+	padding:16px 0;
+	display:block;
+	position:relative;
+	color:#fff;
+	border-radius:4px;
+	transition:all .5s ease;
+	transform-style:preserve-3d
+	}
+
+.menu-item a:before, .menu-itemc a:before{
+	width:100%;
+	padding:16px 0;
+	display:block;
+	position:absolute;
+	color:#000;
+	border-radius:4px;
+	}
+
+.menu > ol:first-child > .menu-item{display:block}
+.menu > ol:first-child > .menu-itemc{display:block}
+
+.menu > ol:first-child > .menu-item > a
+	{background:#000;box-shadow:0 8px 6px -6px #595959}
+.menu > ol:first-child > .menu-itemc > a
+	{background:#000;box-shadow:0 8px 6px -6px #595959}
+
+
+
+.menu > ol:first-child > .menu-item > a:before
+	{background:#ff9900;bottom:90%;transform:rotateX(-90deg) translate3d(0,0,75px)}
+.menu > ol:first-child > .menu-itemc > a:before
+	{background:#ff9900;bottom:90%;transform:rotateX(-90deg) translate3d(0,0,75px)}
+.menu > ol:first-child > .menu-item:nth-of-type(1) > a:before{content:"Home"}
+.menu > ol:first-child > .menu-item:nth-of-type(2) > a:before{content:"Connexion"}
+.menu > ol:first-child > .menu-item:nth-of-type(3) > a:before{content:"Inscription"}
+.menu > ol:first-child > .menu-item:nth-of-type(4) > a:before{content:"Contact"}
+
+.menu > ol:first-child > .menu-itemc:nth-of-type(2) > a:before{content:"Profil"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(3) > a:before{content:"Planning"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(4) > a:before{content:"Réservation"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(5) > a:before{content:"Déconnexion"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(6) > a:before{content:"Contact"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(7) > a:before{content:"Administrateur"}
+
+.menu > ol:first-child > .menu-item:hover > a{transform:rotateX(90deg)}
+.menu > ol:first-child > .menu-itemc:hover > a{transform:rotateX(90deg)}
+
+
+
+@keyframes fadein-down{
+	from{display:none;opacity:0;transform:translateY(-10px)}
+	to{display:block;opacity:1;transform:translateY(0)}
+	}
+
+@media screen and (min-width:321px) and (max-width:799px){
+	.menu{width:320px;margin:auto}
+	}
+
+@media (max-width:799px){
+	.menu > ol:first-child > .menu-item{width:100%}
+	.menu > ol:first-child > .menu-item> a{box-shadow:none}
+	.menu > ol:first-child > .menu-itemc{width:100%}
+	.menu > ol:first-child > .menu-itemc > a{box-shadow:none}
+	
+	.menu > ol:first-child > .menu-item:nth-of-type(2) > a,
+	.menu > ol:first-child > .menu-item:nth-of-type(4) > a
+		{border:1px solid #fff;border-left:none;border-right:none}
+	
+
+	}
 /*reservation php*/
 
 #body-reserv{
@@ -58,7 +166,7 @@
 /*admin*/
 
 #body-admin{
-background-image: url("https://www.coulangesgestionprivee.fr/wp-content/uploads/2016/10/Background-slide-2-1663.jpg");
+background-image: url("https://www.camping-du-viaduc.com/ressources/medias/251-editeur_page_bloc_element-camping-riviere-1800x925.jpg");
 background-size: cover;
 
 }
@@ -68,11 +176,13 @@ background-size: cover;
 }
 
 #reserv-admin{
-    width: 596px;
-    height: 310px;
-	background-color: #e4c9c95c;
-	margin-left: auto;
-	margin-right: auto;
+    width: 684px;
+    height: 308px;
+    background-color: #e4c9c95c;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+    text-align: center;
 
 	
 
@@ -82,7 +192,7 @@ background-size: cover;
 #admin-chang{
     width: 300px;
     height: 300px;
-    background-color: #de93935c;
+    background-color: #d8af399e;
     text-align: center;
     border: solid;
     
@@ -92,7 +202,7 @@ background-size: cover;
 #modif-admin{
     width: 300px;
     height: 300px;
-    background-color: #de93935c;
+    background-color: #d8af399e;
     text-align: center;
     border: solid;
 }
@@ -101,14 +211,14 @@ background-size: cover;
     width: 300px;
     height: 300px;
     padding-left: 34px;
-    background-color: #de93935c;
+    background-color: #d8af399e;
     border: solid;
 }
 
 #content-admin{
 	display: flex;
 	justify-content: space-around;
-	    margin-top: 10%;
+	   margin-top: 7%;
 
 
 }
@@ -126,4 +236,28 @@ background-size: cover;
 	font:bold 12px Verdana;
 	padding:6px 0 6px 0;
 	border:1px solid #ccc;
+}
+
+#table1-admin{
+
+	margin:auto;
+}
+
+#table2-admin{
+	margin:auto;
+}
+
+
+.h1-admin{
+	color:#276527;
+}
+
+.label-admin{
+	font-size: 25px;
+	
+}
+
+
+.legend-admin{
+	font-size:22px;
 }

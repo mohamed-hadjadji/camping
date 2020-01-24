@@ -29,9 +29,9 @@ echo($resultat[0][8]);
 
 </head>
 
-
-
 <body id=body-admin>
+  
+
 
   <?php
 
@@ -40,7 +40,14 @@ echo($resultat[0][8]);
     echo "Vous n'avez pas acces a la page";
   }
   else{
+
     ?>
+    <header id="header-admin">
+      <?php
+      include('bar-nav.php');
+
+      ?>
+    </header>
     <main id="main-admin" >
       <div id= "tab-admin">
       <?php
@@ -49,7 +56,7 @@ echo($resultat[0][8]);
     echo "<div id=\"reserv-admin\">";
     echo "<h1>Reservations</h1>";
     ?>
-    <table border>
+    <table id="table1-admin" border>
     <tr>
     <th>ID</th><th>type</th><th>lieu</th><th>sejour</th><th>debut</th><th>fin</th><th>option1</th><th>option2</th><th>option3</th><th>total</th><th>id_user</th><th>pseudo</th>
 
@@ -77,7 +84,7 @@ echo($resultat[0][8]);
     
     echo "<h1>tarif</h1>";
     echo "
-    <table border>
+    <table id=\"table2-admin\" border>
     <tr>
     <th>ID</th><th>tente</th><th>campingcar</th><th>borne</th><th>disco</th><th>pack</th><th>id_reservation</th>
 
@@ -105,8 +112,9 @@ echo($resultat[0][8]);
 
     <!-- changement de prix -->
     <div id="admin-chang">
-<h1>changement de prix </h1>
+<h1 class="h1-admin">changement de prix </h1>
     <form action="" method="post">
+      <label class="label-admin">Categorie</label><br>
       <select name="suplement" id="pet-select">
         <option value="">--Please choose an option--</option>
         <option value="borne">borne</option>
@@ -114,8 +122,8 @@ echo($resultat[0][8]);
         <option value="pack">pack</option>
         <option value="tente">tente</option>
         <option value="campingcar">campingcar</option>
-      </select>
-      <label>Prix</label><br>
+      </select><br>
+      <label class="label-admin">Prix</label><br>
       <input class="bouton-admin" type="number" name="prix1" placeholder="prix"><br>
       <input class="bouton-admin" type="submit" name="accepte" value="valider"><br>
 
@@ -136,6 +144,11 @@ echo($resultat[0][8]);
       $query2= mysqli_query($connexion,$requete2);
        echo "votre changement a eté pris en compte";
 
+       header('Location: admin.php');
+// Nécessite qu'aucun affichage html n'est déjà été envoyé au navigateur
+// example.php est la page cible de la redirection
+// Redirection immédiate
+
     }
 
         ?>
@@ -143,10 +156,10 @@ echo($resultat[0][8]);
 
     <!-- modifier les reservation -->
     <div id="modif-admin">
-    <h1>modifier les reservation</h1>
+    <h1 class="h1-admin">modifier les reservation</h1>
     <form method="post"> 
-      <label>Speudo:</label><br>
-      <input class="bouton-admin" type="text" name="pseudo" placeholder="speudo"><br>
+      <label class="label-admin">Speudo:</label><br>
+      <input class="bouton-admin" type="text" name="pseudo" placeholder="pseudo"><br>
       <select name="categorie">
         <option value="type">type</option>
         <option value="lieu">lieu</option>
@@ -158,7 +171,7 @@ echo($resultat[0][8]);
       <!-- form 1 -->
        
      
-  <legend>Veuillez sélectionner les supléments :</legend>
+  <legend class="legend-admin"><b>Veuillez sélectionner les supléments :</b></legend>
     <input class="bouton-admin" type="checkbox" name="option1" value="borne">
     <label for="coding">borne</label>
     <input class="bouton-admin" type="checkbox" name="option2" value="disco">
@@ -167,7 +180,7 @@ echo($resultat[0][8]);
     <label for="music">pack</label><br>
 
 
-                <input class="bouton-admin" type="submit" name="modifier" value="modifer">
+                <input class="bouton-admin" type="submit" name="modifier" value="modifier">
       
  
 
@@ -206,6 +219,7 @@ echo($resultat[0][8]);
       $requete3= "UPDATE reservations  SET $categorie = '$mod1' , option1 = '$option1' , option2 = '$option2' , option3 = '$option3' where pseudo= '$name'  ";
       $query3= mysqli_query($connexion,$requete3);
       echo "votre modification a bien eté pris en compte";
+      header('Location: admin.php');
           
 
     }
@@ -214,9 +228,9 @@ echo($resultat[0][8]);
 </div>
     <!-- suprimer la reservation -->
      <div id="sup-admin">
-   <h1>supprimer la reservation</h1> 
+   <h1 class="h1-admin">supprimer la reservation</h1> 
 <form method="post"> 
-      <label>Speudo:</label><br>
+      <label class="label-admin">Speudo:</label><br>
       <input class="bouton-admin" type="text" name="pseudo2" placeholder="speudo"><br>
       <input class="bouton-admin" type="submit" name="suprimer" value="suprimer">
 </form>
@@ -228,17 +242,22 @@ echo($resultat[0][8]);
       $requete4= "DELETE FROM reservations WHERE pseudo= '$name2'";
       $query4= mysqli_query($connexion,$requete4);
           echo "supression reusis";
+          header('Location: admin.php');
 
     }
 
       ?>
-      <?php
-  }
-  ?>
+
 </div>
   </div>
 
 </main>
+
+<?php
+
+}
+
+?>
 
 
 

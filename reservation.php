@@ -24,19 +24,12 @@ ob_start();
     <title>Réservation</title>
 </head>
 <body id="body-reserv">
-    <header>
-        <nav id="menu">
+<header id="header-reserv">
+      <?php
+      include('bar-nav.php');
 
-            <div class="nav2">
-                <a href="index.php"><h2>Accueil</h2></a>
-                <a href="profil.php"><h2>Modification</h2></a>
-                <a href="planning.php"><h2>Planning</h2></a>
-                <a href="reservation-form.php"><h2>Réservation</h2></a>
-                <a href="index.php?deconnexion=true"><h2>Déconnexion</h2></a>
-            </div>
-        </nav>
-    
-    </header>
+      ?>
+</header>
     <main id="main-reserv">
 <h1 id="h1-reserv">Votre reservation est disponible dans le tableau</h1>
 <p class="p-reserv">Pour modifier la reservation contacter un membre de l'equipe</p>
