@@ -4,35 +4,24 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="camping.css">
     <title>Accueil</title>
 </head>
 <body class="bodya">
-    <?php 
-    include("bar-nav.php");
-    ?>
-    <section id="userco">
-    <?php
-    if (isset($_SESSION['login'])==false)
-    {
-    ?>
-   
+  <header>
+    <?php include("bar-nav.php");?>
+    <ul class="slideshow">
+  <li><span></span></li>
+  <li><span></span></li>
+  <li><span></span></li>
+  <li><span></span></li>
+  <li><span></span></li>
+  </ul>  
+    
 
-     <?php
-    }
-     elseif(isset($_SESSION['login'])==true)
-
-    {
-       
-
-            $user = $_SESSION['login'];
-            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté vous pouvez réserver maintenant.</b></h3>"; 
-    ?>
-     
-
-    <?php
-    }
-    ?>
+  </header>
+  <section id="userco">
+    
   </section>
   <section id="defilie">
    

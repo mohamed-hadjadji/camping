@@ -1,10 +1,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="camping.css">
 	<title>Inscription</title>
 </head>
-<body class="bodyi">
+<body class="bodyc">
 
 	<?php
     session_start();
@@ -15,21 +15,25 @@
     {
     ?>
     <section id="connexion">
-        <form class="form" method="POST" action="">
-            <main class="connect">
-             
-                <h2>INSCRIPTION</h2>
-            </main>
-            <main class="login">
-        
-        
-                 <label><b>LOGIN</b></label>
-                 <input type="text" name="login" placeholder="Entrez votre Login" required><br/>
-                 <label><b>PASSWORD</b></label>
-                 <input type="password" name="mdp1" placeholder="Entrez votre mot de passe" required><br/>
-                 <label><b>CONFIRMER PASSWORD</b></label>
-                 <input type="password" name="mdp2" placeholder="Confirmez votre mot de passe" required><br/> 
-                 <input align="center" type="submit" value="VALIDER" name="connexion"><br>
+
+        <div id="main" class="container">   
+            <form name="loginform" id="loginform" action="#" method="post" class="wpl-track-me"> 
+                <p class="login-username">
+                    <label for="user_login">Username</label> 
+                    <input type="text" id="user_login" class="input" placeholder="Username" value="" size="20" name="login" required/> 
+                </p> 
+                <p class="login-password"> 
+                    <label for="user_pass">Password</label>
+                    <input type="password" name="mdp1" id="user_pass" class="input" placeholder="Password" value="" size="20" required/> 
+                </p>
+                <p class="login-password"> 
+                    <label for="user_pass">Password</label>
+                    <input type="password" name="mdp2" id="user_pass" class="input" placeholder="Confirmer Password" value="" size="20" required/> 
+                </p>       
+
+                <p class="login-submit"><input type="submit" name="connexion" id="submit" class="button-primary" value="Log in" />
+                    <input type="hidden" name="redirect_to" value="#"/>
+                </p>    
                  <?php
 
 
@@ -66,9 +70,9 @@
         }
 
     ?>
-            </main>
         
         </form>
+    </div>
         
     </section>
     <?php

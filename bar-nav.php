@@ -1,39 +1,40 @@
 
-<header>
+
   <?php
     if (isset($_SESSION['login'])==false)
     {
     ?>
   
 
-    <nav id="menu">
-      <div class="nav1">
-        
+  <nav class="menu">
+  <ol>
+    <li class="menu-item"><a href="index.php">Home</a></li>
+    <li class="menu-item"><a href="connexion.php">Connexion</a></li>
+    <li class="menu-item"><a href="inscription.php">Inscription</a>
+    <li class="menu-item"><a href="">Contact</a></li>
+  </ol>
+</nav>
 
-      </div>
-      <div class="nav2">
-        <a href="index.php"><h2>Accueil</h2></a>
-        <a href="connexion.php"><h2>Connexion</h2></a>
-        <a href="inscription.php"><h2>Inscription</h2></a>
-      </div>
-    </nav>
     
      <?php
     }
      elseif(isset($_SESSION['login'])==true)
 
     {
+       if($_SESSION['login'] =="admin")
+       {
        
     ?>
-  
-    <nav id="menu">
-      <div class="nav2">
-        <a href="index.php"><h2>Accueil</h2></a>
-        <a href="profil.php"><h2>Modification</h2></a>
-        <a href="planning.php"><h2>Planning</h2></a>
-        <a href="reservation-form.php"><h2>Réservation</h2></a>
-        <a href="index.php?deconnexion=true"><h2>Déconnexion</h2></a>
-      </div>
+    <nav class="menu">
+      <ol>
+        <li class="menu-item"><a href="index.php">Home</a></li>
+        <li class="menu-itemc"><a href="profil.php">Profil</a></li>
+        <li class="menu-itemc"><a href="planning.php">Planning</a>
+        <li class="menu-itemc"><a href="reservation-form.php">Réservation</a>
+        <li class="menu-itemc"><a href="index.php?deconnexion=true">Déconnexion</a>
+        <li class="menu-itemc"><a href="">Contact</a></li>
+        <li class="menu-itemc"><a href="admin.php">Administrateur</a></li>
+      </ol>
     </nav>
  
      <?php
@@ -46,7 +47,37 @@
                       header("location:index.php");
                    }
                 }
+    $user = $_SESSION['login'];
+            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté.</b></h3>"; 
     }
+    else
+    {   
+    ?>
+    <nav class="menu">
+      <ol>
+        <li class="menu-item"><a href="index.php">Home</a></li>
+        <li class="menu-itemc"><a href="profil.php">Profil</a></li>
+        <li class="menu-itemc"><a href="planning.php">Planning</a>
+        <li class="menu-itemc"><a href="reservation-form.php">Réservation</a>
+        <li class="menu-itemc"><a href="index.php?deconnexion=true">Déconnexion</a>
+        <li class="menu-itemc"><a href="">Contact</a></li>
+      </ol>
+    </nav>
+ 
+     <?php
+                
+                if(isset($_GET['deconnexion']))
+                { 
+                   if($_GET['deconnexion']==true)
+                   {  
+                      session_unset();
+                      header("location:index.php");
+                   }
+                }
+    $user = $_SESSION['login'];
+            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté vous pouvez réserver maintenant.</b></h3>"; 
+    }
+      
+  }
              
     ?>
-</header>

@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="">
+        <link rel="stylesheet" type="text/css" href="camping.css">
     <title>Connexion</title>
 </head>
 <body class="bodyc">
@@ -45,21 +45,23 @@
             }
         }
         ?>
-     <section id="connexion">
-         <form class="form" action="" method="POST">
-        	<main class="connect">
-               
-                <h2>CONNEXION</h2>
-            </main>
-            <main class="login">
-                
-                <label><b>LOGIN</b></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required>
+    <section id="connexion">
 
-                <label><b>PASSWORD</b></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+        <div id="main" class="container">   
+            <form name="loginform" id="loginform" action="#" method="post" class="wpl-track-me"> 
+                <p class="login-username">
+                    <label for="user_login">Username</label> 
+                    <input type="text" id="user_login" class="input" placeholder="Username" value="" size="20" name="login" required/> 
+                </p> 
+                <p class="login-password"> 
+                    <label for="user_pass">Password</label>
+                    <input type="password" name="password" id="user_pass" class="input" placeholder="Password" value="" size="20" required/> 
+                </p>    
 
-                <input type="submit" id='submit' value='VALIDER' >
+                <p class="login-submit"><input type="submit" name="submit" id="submit" class="button-primary" value="Log in" />
+                    <input type="hidden" name="redirect_to" value="#"/>
+                </p>    
+         
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
@@ -80,6 +82,7 @@
             </main>
              
         </form>
+     </div>
         
          
     </section>
