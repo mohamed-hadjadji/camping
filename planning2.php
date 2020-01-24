@@ -6,20 +6,16 @@
 </head>
 <body id="planning">
     <header id="head">
-        <nav id="menu">
-            <div class="nav2">
-                <a href="index.php"><h2>Accueil</h2></a>
-                <a href="profil.php"><h2>Modification</h2></a>
-                <a href="planning.php"><h2>Planning</h2></a>
-                <a href="reservation-form.php"><h2>Réservation</h2></a>
-                <a href="index.php?deconnexion=true"><h2>Déconnexion</h2></a>
-            </div>
-        </nav>
+       <?php
+       include("bar-nav.php");
+       ?> 
     </header>
 
     <main id="corpplanning">
+      <h1 id="titre">Calendrier</h1>
 
     <div id="jour">
+      
               <form  method="post" action="planning2.php">
               <input id="arriere" type="submit" name="precedent" value="">
               </form>
@@ -61,15 +57,18 @@
       <div class="photo">
       <p class="text">La Plage</p>
       <img class="publicite" src="img/plagecamping.jpg">
+      <p class="paragraphe">Cette plage garde un trésor unique au monde : ses eaux d’un bleu perçant. Pour rajouter une touche d’exotisme à un panorama déjà splendide.</p>
       </div>
 
       <div class="photo" >
       <p class="text">Les Pins</p>
       <img class="publicite" src="img/pinscamping.jpg">
+      <p class="paragraphe">Nos Pins sont un lieu unique et tranquille ou enfants et parents pourront s épanouir divers activités y sont organisées tout  au long de la journée</p>
       </div>
       <div  class="photo">
       <p class="text" >Le Maquis</p>
       <img class="publicite" src="img/maquiscamping.jpg">
+      <p class="paragraphe">Notre maquis s’installe sur des terrains silencieux principalement où de nombreuses espèces buissonnantes forment une végétation souvent inextricable et fermée.</p>
       </div>
     </div> 
 
@@ -127,8 +126,9 @@ $capacite = [$capacite1,$capacite2,$capacite3];
 //tableau qui recupere les reservations et affiche les emplacements dispo
 ?>
 <div id="tableau">
-   <table>
-       <thead id="tetetableau">
+  <h3>Lieux et emplacements disponibles</h3>
+   <table id="table">
+       <thead>
            <tr>
                <th></th>
                <th>Plage</th>
@@ -146,12 +146,12 @@ $capacite = [$capacite1,$capacite2,$capacite3];
                 echo "<td>";
               
                 if ($capacite[$lieu]>= $emplacement){
-                  echo "Réservé";
+                  echo "<div id=\"liens\"><a href=\"reservation.php\">Réservé</a></div>"; 
                   }
                   else{
-                   echo "Disponible ";
+                   echo "<div id=\"lien\"><a href=\"reservation-form.php\">Disponible</a></div>";
                    }
-           
+          
             echo "</td>";
            }
             echo "</tr>";
@@ -164,8 +164,15 @@ $capacite = [$capacite1,$capacite2,$capacite3];
  </main>
       
     
-    <footer>
+    <footer id="foot">
+      <a href="https://fr-fr.facebook.com/"><img class="logo" src="img/facebook-logo.jpg"></a>
+      <a href="https://www.instagram.com"><img class="logo" src="img/instagram-logo.jfif"></a>
+      <a href="https://www.linkedin.com"><img class="logo" src="img/linkedin.jpg"></a>
+      <a href="https://www.twitter.com"><img class="logo" src="img/twitter-logo.jpg"></a>
 
+       <?php
+       include("bar-nav.php");
+       ?> 
     </footer>
 </body>
 </html>

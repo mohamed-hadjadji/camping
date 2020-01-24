@@ -1,3 +1,111 @@
+/*barre nav*/
+
+a{
+	text-align:center;
+	text-decoration:none;
+}
+
+body{
+	font-family:Tahoma,Geneva,sans-serif;
+	font-weight:400
+	}
+
+ol{margin:0;padding:0;list-style-type:none}
+
+.menu{
+	width:100%;
+	display:block;
+	position:relative;
+	z-index: 60;
+	}
+
+.menu > ol:first-child{
+	width:100%;
+	display:flex;
+	position:relative;
+	flex-flow:row wrap;
+	justify-content:center
+	}
+
+.menu-item, .menu-itemc{
+	width:150px;
+	position:relative;
+	perspective:100%;
+	cursor:pointer
+	}
+
+.menu-item a, .menu-itemc a{
+	width:100%;
+	padding:16px 0;
+	display:block;
+	position:relative;
+	color:#fff;
+	border-radius:4px;
+	transition:all .5s ease;
+	transform-style:preserve-3d
+	}
+
+.menu-item a:before, .menu-itemc a:before{
+	width:100%;
+	padding:16px 0;
+	display:block;
+	position:absolute;
+	color:#000;
+	border-radius:4px;
+	}
+
+.menu > ol:first-child > .menu-item{display:block}
+.menu > ol:first-child > .menu-itemc{display:block}
+
+.menu > ol:first-child > .menu-item > a
+	{background:#000;box-shadow:0 8px 6px -6px #595959}
+.menu > ol:first-child > .menu-itemc > a
+	{background:#000;box-shadow:0 8px 6px -6px #595959}
+
+
+
+.menu > ol:first-child > .menu-item > a:before
+	{background:#ff9900;bottom:90%;transform:rotateX(-90deg) translate3d(0,0,75px)}
+.menu > ol:first-child > .menu-itemc > a:before
+	{background:#ff9900;bottom:90%;transform:rotateX(-90deg) translate3d(0,0,75px)}
+.menu > ol:first-child > .menu-item:nth-of-type(1) > a:before{content:"Home"}
+.menu > ol:first-child > .menu-item:nth-of-type(2) > a:before{content:"Connexion"}
+.menu > ol:first-child > .menu-item:nth-of-type(3) > a:before{content:"Inscription"}
+.menu > ol:first-child > .menu-item:nth-of-type(4) > a:before{content:"Contact"}
+
+.menu > ol:first-child > .menu-itemc:nth-of-type(2) > a:before{content:"Profil"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(3) > a:before{content:"Planning"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(4) > a:before{content:"Réservation"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(5) > a:before{content:"Déconnexion"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(6) > a:before{content:"Contact"}
+.menu > ol:first-child > .menu-itemc:nth-of-type(7) > a:before{content:"Administrateur"}
+
+.menu > ol:first-child > .menu-item:hover > a{transform:rotateX(90deg)}
+.menu > ol:first-child > .menu-itemc:hover > a{transform:rotateX(90deg)}
+
+
+
+@keyframes fadein-down{
+	from{display:none;opacity:0;transform:translateY(-10px)}
+	to{display:block;opacity:1;transform:translateY(0)}
+	}
+
+@media screen and (min-width:321px) and (max-width:799px){
+	.menu{width:320px;margin:auto}
+	}
+
+@media (max-width:799px){
+	.menu > ol:first-child > .menu-item{width:100%}
+	.menu > ol:first-child > .menu-item> a{box-shadow:none}
+	.menu > ol:first-child > .menu-itemc{width:100%}
+	.menu > ol:first-child > .menu-itemc > a{box-shadow:none}
+	
+	.menu > ol:first-child > .menu-item:nth-of-type(2) > a,
+	.menu > ol:first-child > .menu-item:nth-of-type(4) > a
+		{border:1px solid #fff;border-left:none;border-right:none}
+	
+
+	}
 /*cssplanning2*/
 #planning{
 	width: 100%;
@@ -5,41 +113,46 @@
 	padding: 0px;
 	display: flex;
 	flex-direction: column;
-	background-color: red;
+	background-attachment: fixed;
+	background-image: url(img/fond.jpg);
+
 
 }
-.nav2{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	background-color: black;
+#head{
+	background-color : black;
 	width: 100%;
-	height: 150px;
+	
+
 }
+
 #corpplanning{
-	background-color: yellow;
+	background-attachment: fixed;
+	background-image: url(img/fond.jpg);
 	width: 100%;
-	height: 660px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 }
-#conteneur{
+#titre{
+	margin-left: 865px;
+	color: white;
+}
 
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+.paragraphe{
+	font-size: 22px;
+	color: white;
 }
+
 #jour{
-	background-color: green;
-	width: 80%;
+	background-color:#80440087;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	font-family: cursive;
-	font-size: 30px;
+	font-family: arial ;
 	color: white;
+	font-size: 30px;
+	
 
 }
 #pub{
@@ -47,11 +160,13 @@
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	font-family: arial white;
 	border-radius: 20px;
 	
 }
 .text{
-	font-family: cursive;
+	font-family: arial ;
+	color: white;
 	font-size: 30px;
 
 }
@@ -64,7 +179,11 @@
 .photo{
 	display: flex;
 	flex-direction: column;
-	text-align: center;
+	justify-content: center;
+	align-items: center;
+	width: 390px;
+   
+
 }
 #arriere{
 	background-image: url(img/flechegauche.jpg); 
@@ -84,21 +203,49 @@
 	height: 60px;
 }
 
-#tetetableau{
-	background-color: brown;
 
-}
 #tableau{
-	background-color: pink;
 	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	background-color:#c0e0ff8c;
 	text-align: center;
-	font-family: cursive;
-	font-size: 60px;
+	font-family: arial ;
+	font-size: 30px;
+	color: white;
 	margin-top: 100px;
-	margin-left: 150px;
+	margin-left: 200px;
+	margin-bottom:200px;
+	box-shadow: 7px 9px 15px black;
+    background-color: #b36811ad;
+    padding: 1%;
+    border: outset 8px #de9b34;
 
 
+}
+#table{
+	color: white;
+	font-size: 22px;
+}
+
+#foot{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color : black;
+	width: 100%;
+	 
+}
+.logo{
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+}
+#lien a{
+	color: white;
+	text-decoration: none;
+}
+#liens a{
+	color: red;
 }
