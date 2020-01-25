@@ -68,14 +68,17 @@ ob_start();
   
   </section>
 </main>
-<footer>
-  </footer>
+
   <?php 
+
   }
   else {
     echo "vous n'avez pas de reservations a votre nom";
   } 
+  include("footer.php");
 ?>
+</body>
+</html>
 
 		
 	
