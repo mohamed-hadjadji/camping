@@ -11,7 +11,7 @@
     <li class="menu-item"><a href="index.php">Home</a></li>
     <li class="menu-item"><a href="connexion.php">Connexion</a></li>
     <li class="menu-item"><a href="inscription.php">Inscription</a>
-    <li class="menu-item"><a href="">Contact</a></li>
+    <li class="menu-item"><a href="#foot">Contact</a></li>
   </ol>
 </nav>
 
@@ -32,7 +32,7 @@
         <li class="menu-itemc"><a href="planning.php">Planning</a>
         <li class="menu-itemc"><a href="reservation-form.php">Réservation</a>
         <li class="menu-itemc"><a href="index.php?deconnexion=true">Déconnexion</a>
-        <li class="menu-itemc"><a href="">Contact</a></li>
+        <li class="menu-itemc"><a href="#foot">Contact</a></li>
         <li class="menu-itemc"><a href="admin.php">Administrateur</a></li>
       </ol>
     </nav>
@@ -47,8 +47,7 @@
                       header("location:index.php");
                    }
                 }
-    $user = $_SESSION['login'];
-            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté.</b></h3>"; 
+     
     }
     else
     {   
@@ -60,7 +59,7 @@
         <li class="menu-itemc"><a href="planning.php">Planning</a>
         <li class="menu-itemc"><a href="reservation-form.php">Réservation</a>
         <li class="menu-itemc"><a href="index.php?deconnexion=true">Déconnexion</a>
-        <li class="menu-itemc"><a href="">Contact</a></li>
+        <li class="menu-itemc"><a href="#foot">Contact</a></li>
       </ol>
     </nav>
  
@@ -74,8 +73,7 @@
                       header("location:index.php");
                    }
                 }
-    $user = $_SESSION['login'];
-            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté vous pouvez réserver maintenant.</b></h3>"; 
+    
     }
       
   }

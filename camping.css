@@ -8,6 +8,7 @@ a{
 body{
 	font-family:Tahoma,Geneva,sans-serif;
 	font-weight:400
+	margin:0px;
 	}
 
 ol{margin:0;padding:0;list-style-type:none}
@@ -109,6 +110,44 @@ ol{margin:0;padding:0;list-style-type:none}
 	}
 
 /*page index*/
+#user{
+	display: flex;
+	justify-content: center;
+
+}
+#user h3{
+	margin-top: 0px;
+    background-color: rgba(255, 255, 255, 0.70);
+    z-index: 70;
+	position: relative; 
+	text-align: center;
+	padding: 12px;
+	width: 35%;
+	border-radius: 10px;
+
+}
+#user h3 u{
+	color: #ff4f1a;
+}
+#logo{
+	display: flex;
+	justify-content: center;
+}
+
+figure{
+	display: flex;
+	justify-content: center;
+	z-index: 70;
+	position: relative; 
+	background-color: rgba(0, 0, 0, 0.60);
+	width: 40%;
+    height: 460px;
+    border-radius: 50%;
+}
+figure img{
+	height: 500px;
+	width: 560px;
+}
 
 .slideshow {
   list-style-type: none;
@@ -117,18 +156,19 @@ ol{margin:0;padding:0;list-style-type:none}
 .slideshow,
 .slideshow:after { 
     
-	position: fixed;
-    width: 100%;
-    height: 85%;
+
+    width: 97%;
+    height: 11%;
     left: 0px;
     z-index: 0; 
     top:-16px;
+
 }
 
 .slideshow li span { 
 	position: absolute;
     width: 100%;
-    height: 100%;
+    height: 80%;
     top: 0px;
     left: 0px;
     color: transparent;
@@ -185,6 +225,71 @@ ol{margin:0;padding:0;list-style-type:none}
 .no-cssanimations .cb-slideshow li span {
 	opacity: 1;
 }
+
+.userco{
+	display: flex;
+	flex-direction: column;
+	background-color: #d5e3e6;
+	width: 1695px;
+	padding: 100px;
+}
+#camp{
+	display: flex;
+	justify-content: center;
+	font-family: 'Consolas';
+	font-size: 30px;
+	color: #0A4468;
+}
+#choix{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.post1{
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+	height: 450px;
+    background-color: white;
+	margin: 50px;
+	box-shadow: 10px 5px 5px gray;
+	transition: .3s ease-in-out;	
+}
+.post1:hover{
+	transform: scale(1.1);
+}
+
+#pic1, #pic2,#pic3 {
+	width: 100%;
+	height: 50%;
+}
+#pic1{
+	background:url("img/plage.jpg")top left / 100% 100%;
+}
+#pic2{
+	background:url("img/pins.jpg")top left / 100% 100%;
+}
+#pic3{
+	background:url("img/maquis.jpg")top left / 100% 100%;
+}
+
+#para h3{
+	padding: 15px;
+	font-size: 22px;
+}
+
+.userco a {
+	text-decoration:none;
+
+}
+#para h3{
+     font-family: 'Georgia';
+	color:#411588;
+
+}
+
+
+
 
 /*formulaire*/
 
@@ -311,4 +416,441 @@ ol{margin:0;padding:0;list-style-type:none}
 }
 .login-remember { 
     display: none;
+}
+
+/*page planning*/
+#planning{
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	background-attachment: fixed;
+	background-image: url(img/fond.jpg);
+
+
+}
+#head{
+	background-color : black;
+	width: 100%;
+	
+
+}
+
+#corpplanning{
+	background-attachment: fixed;
+	background-image: url(img/fond.jpg);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+#titre{
+	margin-left: 865px;
+	color: white;
+}
+
+.paragraphe{
+	font-size: 22px;
+	color: white;
+}
+
+#jour{
+	background-color:#80440087;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	font-family: arial ;
+	color: white;
+	font-size: 30px;
+	
+
+}
+#pub{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	font-family: arial white;
+	border-radius: 20px;
+	
+}
+.text{
+	font-family: arial ;
+	color: white;
+	font-size: 30px;
+
+}
+.publicite{
+	border:ridge;
+	border-radius: 20px;
+	width: 400px;
+	height: 200px;
+}
+.photo{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 390px;
+   
+
+}
+#arriere{
+	background-image: url(img/flechegauche.jpg); 
+	background-size: 60px;
+	margin-top: 30px;
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+
+}
+#avant{
+	background-image: url(img/flechedroite.jpg); 
+	background-size: 60px;
+	margin-top: 30px;
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+}
+
+
+#tableau{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color:#c0e0ff8c;
+	text-align: center;
+	font-family: arial ;
+	font-size: 30px;
+	color: white;
+	margin-top: 100px;
+	margin-left: 200px;
+	margin-bottom:200px;
+	box-shadow: 7px 9px 15px black;
+    background-color: #b36811ad;
+    padding: 1%;
+    border: outset 8px #de9b34;
+
+
+}
+#table{
+	color: white;
+	font-size: 22px;
+}
+
+#foot{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color : black;
+	width: 100%;
+	 
+}
+.logo{
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+}
+#lien a{
+	color: white;
+	text-decoration: none;
+}
+#liens a{
+	color: red;
+}
+
+/*reservation php*/
+
+#body-reserv{
+	background-image: url("https://www.tourisme-isleperigord.com/sites/default/files/styles/fiche_large/public/campings/photos/170_srt_photo_photo_camping-sourzac--1-.jpg?itok=igmb8Rr1");
+	background-size: cover;
+}
+
+#main-reserv{
+	background-color: #d1f8ff5e;
+}
+
+#cadre-reserv{
+	height: 50%;
+	width: 50%;
+	background-color: #81c72f42;
+		position:absolute;
+	margin-left: 25%;
+	margin-top: 2%;
+}
+
+#table-reserv th{
+
+	font-size: 25px;
+	font-style: bold;
+	height: 125px;
+	width: 125px;
+}
+
+#table-reserv tr{
+
+	font-size: 25px;
+	font-style: bold;
+	color:yellow;
+}
+
+#h2-reserv{
+	font-size:25px;
+	text-align: center;
+	font-style: bold;
+	color:#FF9800;
+}
+
+#h1-reserv{
+	font-size:25px;
+	text-align: center;
+	font-style: bold;
+	color:#FF9800;
+}
+.p-reserv{
+	font-size:25px;
+	text-align: center;
+	color:#FF9800;
+	background-color:#d1f8ffa8;
+}
+
+
+
+/*admin*/
+
+#body-admin{
+background-image: url("https://www.camping-du-viaduc.com/ressources/medias/251-editeur_page_bloc_element-camping-riviere-1800x925.jpg");
+background-size: cover;
+
+}
+#main-admin{
+	display: flex;
+	flex-direction: column;
+}
+
+#reserv-admin{
+
+    width: 45%;
+    background-color: #e4c9c9c2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    border: solid;
+    text-align: center;
+    padding: 25px;	
+
+}
+
+
+#admin-chang{
+    width: 300px;
+    height: 300px;
+    background-color: #d8af399e;
+    text-align: center;
+    border: solid;
+    
+
+}
+
+#modif-admin{
+    width: 300px;
+    height: 300px;
+    background-color: #d8af399e;
+    text-align: center;
+    border: solid;
+}
+
+#sup-admin{
+    width: 300px;
+    height: 300px;
+    padding-left: 34px;
+    background-color: #d8af399e;
+    border: solid;
+}
+
+#content-admin{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 7%;
+    margin-top: 4%;
+	margin-bottom: 35px;
+
+
+}
+
+#tab-admin{
+
+
+}
+
+.bouton-admin {
+	border-radius:12px 0 12px 0;
+	background: #f5f5f5;
+	border:none;
+	color:#555;
+	font:bold 12px Verdana;
+	padding:6px 0 6px 0;
+	border:1px solid #ccc;
+}
+
+input[type=checkbox]{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #dddddd;
+  border-radius: 50%;
+}
+
+input[type=checkbox]:checked {
+  
+  color: #ffffff;
+  background-color: #8BC34A;
+  content: "\2713";
+}
+
+#label-admin{
+	font-size: 25px;
+}
+
+#table1-admin{
+
+	margin:auto;
+	font-size: 16px;
+}
+
+#table2-admin{
+	margin:auto;
+	font-size: 20px;
+}
+
+
+.h1-admin{
+	color:#276527;
+}
+
+.label-admin{
+	font-size: 25px;
+	
+}
+
+
+.legend-admin{
+	font-size:22px;
+}
+
+/*formulaire reservation*/
+.bodir{
+	background:url("img/fond.jpg")top left / 100% 100%;
+}
+
+#reservation-form{
+	display: flex;
+	flex-direction: column;
+	color: white;
+	
+}
+#h1reservation-form{
+	text-align: center;
+}
+.parent{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+}
+.reservationf{
+	display: flex;
+	justify-content: center;
+	width: 50%;
+}
+.comment{
+	background-color: #b36811ad;
+    padding: 1%;
+    border: outset 8px #de9b34;
+    width: 25%;
+    margin-top: 12%;
+    margin-bottom: 12%;
+    color: #541717;
+    font-size: 30px;
+    text-align: center;
+    
+}
+.comment h1{
+	color: white;
+    font-size: 40px;
+    text-align: center;
+}
+
+.reserv-form{
+	background-color: #b36811ad;
+    padding: 1%;
+    border: outset 8px #de9b34;
+	padding: 30px;
+	width: 70%;
+	border-radius: 20px;
+	margin-bottom: 50px;
+}
+.cadref{
+	display: flex;
+	flex-direction: column;
+	border-style: solid;
+	border-radius: 20px;
+	padding: 15px;
+}
+.labelreservationform{
+	margin-bottom: 20px;
+
+}
+#selectreservation-form{
+	margin-bottom: 20px;
+	padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+}
+
+.input-reservation-form{
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+}
+#bout{
+	display: flex;
+	justify-content: center;
+}
+.reserv-form input[type=submit] {
+    background-color: #cb4343;
+    color: #F3DA74;
+    padding: 14px 20px;
+    font-family: 'Géorgie';
+    font-size: 20px;
+    width: 300px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin: 20px;
+    
+ 
+}
+.reserv-form input[type=submit]:hover {
+    background-color: #D0DADB;
+    color: #5C6F63;
+    
 }

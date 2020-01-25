@@ -1,8 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+unset($_SESSION['num']); 
+?>
 <html>
 <head>
 	<meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="camping.css">
 	<title>Réservation</title>
 </head>
 <body class="bodir">
@@ -31,9 +33,13 @@
 	
     
 	?>
-	<section  id="reservation-form-section">
+	<section  id="reservation-form">
      	<h1 id="h1reservation-form"><b>Veuillez remplir le formulaire de la réservation</b></h1>
+     	<div class="parent">
+     	<article class="reservationf">
+
      	<form class="reserv-form" method ="post" action ="">
+     		<div class="cadref">
      		<label class="labelreservationform" for="text"><b>Type: </b></label>
      	    <Select id="selectreservation-form" name="type">
                 <option></option>
@@ -42,16 +48,17 @@
             </select>
             <label class="labelreservationform" for="text"><b>lieu:</b></label>
           <Select id="selectreservation-form" name="lieu">
+                <option></option>
                 <option>Plage</option>
                 <option>Pins</option>
                 <option>Maquis</option>                
           </select>
           <label class="labelreservationform" for="text"><b>Durée Séjour: </b></label>
-            <input class="input-reservation-form" type="text" placeholder="Taper le nombre du jour" name="sejour" required>
-            <label  for="datedebut"><b>Date de début: </b></label>
-            <input  type="date" name="datedebut" required>
-            <label  for="datefin"><b>Date de fin: </b></label>
-            <input  type="date" name="datefin" required><br>
+            <input class="input-reservation-form" type="text" name="sejour" required>
+            <label  class="labelreservationform" for="datedebut"><b>Date de début: </b></label>
+            <input  class="input-reservation-form" type="date" name="datedebut" required>
+            <label  class="labelreservationform" for="datefin"><b>Date de fin: </b></label>
+            <input  class="input-reservation-form" type="date" name="datefin" required><br>
              
             <label  for="text"><b>Option</b></label></br>
             <input  type="checkbox" name="borne" value="borne">
@@ -60,9 +67,13 @@
             <label>Discothèque (<?php echo $row['disco']?>€ /jour)</label></br>
              <input type="checkbox" name="pack" value="pack">
             <label>Activités (<?php echo $row['pack']?>€ /jour)</label></br>
-          
+            </div>
+            <div id="bout">
             <br><input type="submit" value="RESERVER" name="valider"></br>
+            </div>
      	</form>
+     	</article>
+        <article class="comment">
      	<?php
         }
                     if ( isset($_POST["valider"]) )
@@ -102,7 +113,7 @@
                           
                           
                         if($startdate < date('Y-m-d')){
-                              echo "Vous ne pouvez pas reserver a une date anterieur au ".date('d-m-Y');
+                              echo "Vous ne pouvez pas reserver a une date anterieur au".date('d-m-Y');
                           
                         }
                         elseif ($enddate < $startdate) {
@@ -119,10 +130,16 @@
 
                                    $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur, pseudo) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total, ".$resultat[0]['id'].", '".$_SESSION['login']."')";
                                       $query3 = mysqli_query($connexion, $requete3);
+
+                                      echo "Votre Réservation est Confirmée, vous pouvez voire sur <a href=\"planning.php\">Le Planning</a>";
                                   }
                                }
                     }
                mysqli_close($connexion);
+        ?>
+        </article>
+    </div>
+     <?php
    }
    else 
    {
@@ -132,6 +149,7 @@
     </section>
   <?php
   }
+  include("footer.php");
 ?>
                          
 
