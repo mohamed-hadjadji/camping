@@ -11,7 +11,7 @@ $resultat = mysqli_fetch_all($query);
 $requetet= "SELECT * FROM tarif2";
 $queryt= mysqli_query($connexion,$requetet);
 $resultatt = mysqli_fetch_all($queryt);
-echo($resultat[0][8]);
+
 
 
 
@@ -34,6 +34,7 @@ echo($resultat[0][8]);
 
 
   <?php
+  if (isset($_SESSION['login'])){
 
   if ($_SESSION['login'] !="admin")
   {
@@ -255,11 +256,23 @@ echo($resultat[0][8]);
 <?php
 
 }
+include("footer.php");
+}
+else{
+   ?>
+    <header id="header-admin">
+      <?php
+      include('bar-nav.php');
 
+      ?>
+    </header>
+    <?php
+  echo "Vous n'avez pas acces a la page";
+  include("footer.php");
+  
+
+}
 ?>
 
-
-
-
-
 </body>
+</html>
