@@ -121,11 +121,16 @@ unset($_SESSION['num']);
                         }
                         else{
                             
-
-                                   $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur, pseudo) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total, ".$resultat[0]['id'].", '".$_SESSION['login']."')";
+                        		include("boucle.php");
+                                      if ( $dispook == 1 ) {
+                                      	$requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur, pseudo) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total, ".$resultat[0]['id'].", '".$_SESSION['login']."')";
                                       $query3 = mysqli_query($connexion, $requete3);
 
                                       echo "Votre Réservation est Confirmée, vous pouvez voire sur <a href=\"planning.php\">Le Planning</a>";
+                                      }
+                                      else {
+                                      	echo "Plus de place";
+                                      }
                                   
                                }
                     }

@@ -17,7 +17,7 @@
     <?php
     if (isset($_SESSION['login'])==false)
     {
-       echo "<h3>Connectez vous et réservez maintenanat";
+       echo "<h3>Connectez vous et réservez maintenant";
     }
     elseif(isset($_SESSION['login'])==true)
 
