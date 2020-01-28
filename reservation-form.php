@@ -120,19 +120,13 @@ unset($_SESSION['num']);
                               echo "Vous ne pouvez pas choisir une date de fin antérieur a la date de debut";
                         }
                         else{
-                            $requete2 = "SELECT * FROM reservations WHERE (debut BETWEEN '$startdate' AND '$enddate') OR (fin BETWEEN '$startdate' AND '$enddate') ";
-                            $query2 = mysqli_query($connexion, $requete2);
-                            $resultat2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
-                                if(!empty($resultat2)){
-                                   echo "Une reservation existe deja a cette date";
-                                 }
-                                else{
+                            
 
                                    $requete3 = "INSERT INTO reservations (type, lieu, sejour, debut, fin, option1, option2, option3, total, id_utilisateur, pseudo) VALUES ('$renametype', '$renamelieu','$renamesejour', '$startdate', '$enddate', '$option1','$option2','$option3',$total, ".$resultat[0]['id'].", '".$_SESSION['login']."')";
                                       $query3 = mysqli_query($connexion, $requete3);
 
                                       echo "Votre Réservation est Confirmée, vous pouvez voire sur <a href=\"planning.php\">Le Planning</a>";
-                                  }
+                                  
                                }
                     }
                mysqli_close($connexion);
