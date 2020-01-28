@@ -34,6 +34,7 @@ $resultatt = mysqli_fetch_all($queryt);
 
 
   <?php
+  if (isset($_SESSION['login'])){
 
   if ($_SESSION['login'] !="admin")
   {
@@ -256,6 +257,21 @@ $resultatt = mysqli_fetch_all($queryt);
 
 }
 include("footer.php");
+}
+else{
+   ?>
+    <header id="header-admin">
+      <?php
+      include('bar-nav.php');
+
+      ?>
+    </header>
+    <?php
+  echo "Vous n'avez pas acces a la page";
+  include("footer.php");
+  
+
+}
 ?>
 
 </body>
